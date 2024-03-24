@@ -189,6 +189,7 @@ class Invoice extends PureComponent {
   }
 
   viewInvoice() {
+    console.log(this.props.invoice);
     ipc.send('preview-invoice', this.props.invoice);
   }
 

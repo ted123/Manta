@@ -61,7 +61,16 @@ class SideBar extends Component {
   }
 
   savePDF() {
-    const invoiceID = this.props.invoice._id;
+    let invoiceID = this.props.invoice._id;
+  
+    try {
+      const rows = this.props.invoice.rows;
+      invoiceID = rows[0].description.split('-')[0].replace(/\s/g, '') + '-' + rows[rows.length - 1].description.split('-')[0].replace(/\s/g, '');
+      console.log(invoiceID);
+    } catch(e) {
+      // do nothing
+      console.error(e);
+    }
     ipc.send('save-pdf', invoiceID);
     // Always save template configs to invocie when export to PDF
     this.saveConfigs();

@@ -35,7 +35,7 @@ export function RecipientForm({ t, formData, updateRecipientForm }) {
       </Row>
       <Row>
         <Field>
-          <label className="itemLabel">{t('common:fields:email')} *</label>
+          <label className="itemLabel">{t('common:fields:email')}</label>
           <input
             name="email"
             type="text"
